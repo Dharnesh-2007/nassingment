@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Booking Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #confirmation {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+    <script>
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const password = document.getElementById("password").value;
+
+            // Simple validation (you can expand this)
+            if (name && email && phone && password) {
+                const confirmationMessage = `Thank you, ${name}! Your ticket has been booked.`;
+                document.getElementById("confirmation").innerText = confirmationMessage;
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Ticket Booking Form</h1>
+    <form onsubmit="event.preventDefault(); submitForm();">
+        <input type="text" id="name" placeholder="Full Name" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="text" id="phone" placeholder="Phone Number" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Book Ticket</button>
+    </form>
+    
+    <p id="confirmation"></p>
+</body>
+</html>
